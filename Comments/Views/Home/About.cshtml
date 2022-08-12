@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "О сайте";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .star-rating s:hover {
+        color: red;
+    }
+    .star-rating s{
+        color: black;
+        font-size: 50px;
+        cursor: default;
+        text-decoration: none;
+        line-height: 50px;
+    }
+    .star-rating {
+        padding: 2px;
+    }
+    .star-rating s:hover:before{
+        content: "\2605";
+    }
+    .star-rating s:before {
+        content: "\2606";
+    }
+</style>
+<div class="container my-4">
+    <div class="text-center">
+        <p>Этот сайт делал 1 человек ,которого кинули в начале пути,бэкендер, который ещё стал изучать фронтенд технологии сделал этот чудесный сайт.</p>
+        <p>Если вы это читаете, тогда вы уже просмотрели мой сайт и можете оценить его</p>
+    </div>
+    <div class="star-rating"><s><s><s><s><s></s></s></s></s></s></div>
+    <script type="text/javascript">
+        $(function() {
+            $("div.star-rating > s, div.star-rating-rtl > s").on("click", function(e) {
+                var numStars = $(e.target).parentsUntil("div").length+1;
+                alert('Спасибо за отзыв');
+            });
+        });
+    </script>
+</div>

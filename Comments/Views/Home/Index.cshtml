@@ -1,0 +1,27 @@
+﻿@using Animes.Models;
+@model List<Anime>;
+@{
+    ViewBag.Title = "Index";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-for-anime">
+    @foreach (var anime in Model)
+    {
+        <a href="/" class="anime-item">
+             <img src="@anime.PathToPreview" class="circle-image">
+
+            <div class="square-for-anime">
+                <h6 class="serial-name-for-anime">@anime.AnimeName</h6>
+                <div class="anime-genres-container">
+                    <h6 class="genres-label">Жанры</h6>
+                    @foreach (var genre in anime.Genres.Split(',').Take(3))
+                    {
+                        <h6 class="serial-genres-for-anime">@genre.Trim()</h6>
+                    }
+                </div>
+            </div>
+        </a>
+    }
+</div>
+

@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<div class="animeForm">
+    <h4>Введите всю информацию</h4>
+    <form method="post" enctype="multipart/form-data" >
+        <div class="separateFields">
+            <label>Название аниме</label><br />
+            <input type="text" name="animeName" /><br>
+        </div>
+
+        <div class="separateFields">
+            <label>Описание аниме</label><br />
+            <input type="text" name="animeDiscription" /><br>
+        </div>
+
+        <div class="separateFields">
+            <label>Жанры аниме</label><br />
+            <input type="text" name="genres" /><br>
+        </div>
+
+        <div class="separateFields">
+            <label>Превью для аниме</label><br />
+            <input type="file" name="photo" /><br>
+        </div>
+
+        <input type="submit" value="Загрузить" class="btn"/>
+    </form>
+</div>
+

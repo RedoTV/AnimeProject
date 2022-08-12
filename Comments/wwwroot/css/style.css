@@ -1,0 +1,96 @@
+﻿body {
+    color:white;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #424242;
+    font-size: 20px;
+}
+
+
+.addAnime {
+    
+    color: #ffffff;
+    font-family: Candara;
+    font-size: 30px;
+    margin: 5px;
+    text-decoration: none;
+    
+}
+.container-for-anime {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    justify-content: space-evenly;
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.anime-item {
+    width: 200px;
+    text-decoration: none;
+    color:white;
+    margin-top:20px;
+}
+.anime-item:hover{
+    opacity:0.9;
+}
+.preview-for-anime {
+    border-radius: 100px;
+    width: 200px;
+}
+
+.serial-name-for-anime {
+    margin-top: 0px;
+    text-align: center;
+}
+
+serial-genres-for-anime{
+    text-align:left
+}
+.square-for-anime {
+    width: 200px;
+    height: 250px;
+    background-color: #2b2424;
+    margin-top: -100px;
+    border-end-start-radius: 40px;
+    border-end-end-radius: 40px;
+    padding-top: 100px;
+}
+
+
+.circle-image {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+}
+
+
+@media (max-width : 750px) {
+    .container-for-anime {
+        grid-template-columns: 200px;
+        width:300px;
+    }
+}
+.animeForm{
+    width:max-content;
+    margin-left:auto;
+    margin-right:auto;
+    border:5px solid #388994;
+    border-radius:5px;
+}
+.separateFields {
+    padding-top:5px;
+    padding-bottom:5px;
+    border: 1px dashed #388994;
+}
+
+.thanks{
+    margin-left:auto;
+    margin-right:auto;
+    width:400px;
+    text-align:center;
+}
+
+.nav-item .dropdown-menu  a :hover {
+    background-color:red;
+}
