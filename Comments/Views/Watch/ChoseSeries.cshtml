@@ -1,0 +1,49 @@
+﻿@using Animes.Models;
+@using System.Security.Claims
+	
+@model List<AnimeSeries>
+@{
+    ViewBag.Title = "Выбор серии";
+    Layout = "/Views/Shared/_Layout.cshtml";
+
+    Claim claims = User.FindFirst(ClaimTypes.Role);
+    if (claims != null)
+    {
+        if (claims.Value == "admin")
+        {
+            <div class="container">
+                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  Добавить серию
+                </a>
+                <div class="collapse" id="collapseExample">
+                    <div class="animeForm">
+                        <h4>Введите всю информацию</h4>
+                        <form method="post" enctype="multipart/form-data" action="~/Admin/AddSeries">
+                            <div class="separateFields">
+                                <label>Номер Серии</label><br />
+                                <input type="number" name="seriesNumber"/><br>
+                            </div>
+
+                            <div class="separateFields">
+                                <label>Загрузить Серию</label><br />
+                                <input type="file" name="animeSeries"  /><br>
+                            </div>
+
+                            <input type="submit" value="Загрузить" class="btn text-white"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+}
+<ul class="d-flex justify-content-evenly">
+    @for (int i = 0; i < Model.Count(); i++)
+    {
+        int numberOfSeries = i + 1;
+
+        <li>
+            <a href="~/watch/watchseries?seriesNumber=@i">@numberOfSeries Серия</a>
+        </li>
+    }
+</ul>

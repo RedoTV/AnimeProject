@@ -43,8 +43,8 @@
     text-align: center;
 }
 
-serial-genres-for-anime{
-    text-align:left
+.serial-genres-for-anime{
+    text-align:left;
 }
 .square-for-anime {
     width: 200px;
@@ -84,13 +84,3 @@ serial-genres-for-anime{
     border: 1px dashed #388994;
 }
 
-.thanks{
-    margin-left:auto;
-    margin-right:auto;
-    width:400px;
-    text-align:center;
-}
-
-.nav-item .dropdown-menu  a :hover {
-    background-color:red;
-}

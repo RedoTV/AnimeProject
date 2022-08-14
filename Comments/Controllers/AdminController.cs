@@ -45,7 +45,38 @@ namespace Animes.Controllers
             AnimeDB.Animes.Add(animeModel);
             await AnimeDB.SaveChangesAsync();
             return Redirect("~/");
+        }
 
+        [Authorize(Roles = "admin")]
+        [HttpPost, DisableRequestSizeLimit]
+        public async Task<IActionResult> AddSeries(int seriesNumber, IFormFile animeSeries)
+        {
+            List<Anime> animes = AnimeDB.Animes.ToList();
+            int animeid = int.Parse(HttpContext.Request.Cookies["animeid"]);
+            Anime currentAnime = animes[animeid];
+
+            string pathToWebRoot = env.WebRootPath;
+            string folderForAnime = Path.Combine(pathToWebRoot, "all_anime_series", currentAnime.AnimeName);
+            if (!Directory.Exists(folderForAnime))
+            {
+                Directory.CreateDirectory(folderForAnime);
+            }
+
+            string fullPath = Path.Combine(pathToWebRoot, "all_anime_series", currentAnime.AnimeName, seriesNumber + ".mp4");
+            using (FileStream videoStream = new FileStream(fullPath, FileMode.Create))
+            {
+                await animeSeries.CopyToAsync(videoStream);
+            }
+            string videoInRoot = Path.Combine("all_anime_series", currentAnime.AnimeName, seriesNumber + ".mp4");
+
+            AnimeSeries animeSer = new AnimeSeries();
+            animeSer.SeriesNumber = seriesNumber;
+            animeSer.PathToVideo = videoInRoot;
+            animeSer.Anime = currentAnime;
+
+            AnimeDB.Series.Add(animeSer);
+            await AnimeDB.SaveChangesAsync();
+            return Redirect($"~/watch/choseseries?animeid={animeid}");
         }
     }
 }

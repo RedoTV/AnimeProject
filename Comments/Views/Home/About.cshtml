@@ -29,12 +29,12 @@
         <p>Если вы это читаете, тогда вы уже просмотрели мой сайт и можете оценить его</p>
     </div>
     <div class="star-rating"><s><s><s><s><s></s></s></s></s></s></div>
-    <script type="text/javascript">
+</div>
+<script type="text/javascript">
         $(function() {
-            $("div.star-rating > s, div.star-rating-rtl > s").on("click", function(e) {
+            $("div.star-rating > s").on("click", function(e) {
                 var numStars = $(e.target).parentsUntil("div").length+1;
                 alert('Спасибо за отзыв');
             });
         });
     </script>
-</div>

@@ -1,4 +1,4 @@
-﻿using Animes.HelperClasses;
+﻿
 using Animes.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -63,7 +63,7 @@ namespace Animes.Controllers
             User person = new User();
             person.Login = login;
             person.Password = password;
-            person.Role = "admin";
+            person.Role = "user";
             UserContext.Users.Add(person);
             UserContext.SaveChangesAsync();
             return Redirect("/login/login");
