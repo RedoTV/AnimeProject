@@ -1,0 +1,23 @@
+﻿@using Animes.Models;
+@model AnimeSeries;
+@{
+    ViewBag.Title = "Просмотр серии";
+    Layout = "/Views/Shared/_Layout.cshtml";
+    string pathToSeries = $"../{Model.PathToVideo}";
+}
+<link rel="stylesheet" href="~/Plyr/plyr.css" />
+
+<div class="container">
+        <video id="player" playsinline controls>
+            <source src="@pathToSeries" type="video/mp4"/>
+        </video>
+</div>
+
+<script src="~/Plyr/plyr.polyfilled.js"></script>
+<script>
+    const player = new Plyr('#player',{
+        markers: {
+        enabled: true,
+        }  
+    });
+</script>

@@ -1,4 +1,4 @@
-﻿using Animes.HelperClasses;
+﻿
 using System.ComponentModel.DataAnnotations;
 
 namespace Animes.Models

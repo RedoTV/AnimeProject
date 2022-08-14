@@ -7,14 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="HelperClasses\**" />
+    <Content Remove="HelperClasses\**" />
+    <EmbeddedResource Remove="HelperClasses\**" />
+    <None Remove="HelperClasses\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.7" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="HelperClasses\" />
     <Folder Include="wwwroot\priview_img\" />
     <Folder Include="Database\" />
+    <Folder Include="wwwroot\Plyr\" />
   </ItemGroup>
 
 </Project>
